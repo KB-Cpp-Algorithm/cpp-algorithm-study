@@ -89,6 +89,20 @@
 
 ---
 
+## 📌 Commit Convention
+
+커밋 메시지는 아래 형식을 따릅니다.
+
+### 기본 형식
+```bash
+[플랫폼] 이름(이니셜) - 문제 이름 or 번호
+ex)
+[BOJ] JJ - 요세푸스
+[PG] JJ - 타겟 넘버
+[ABC453] JJ - A
+[SS] JJ - 돌아가는 팔각 의자
+```
+
 # 📂 Repository Structure
 
 👉 **문제 기준으로 코드 관리합니다**
