@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <b>문제 풀이 · 발표 · 코드 공유 기반 알고리즘 스터디</b><br>
+  <b>문제 풀이 · 발표 · 코드 리뷰 기반 알고리즘 스터디</b><br>
 </p>
 
 ---
@@ -25,14 +25,14 @@
 - 알고리즘 문제 해결 능력 향상
 - 구현 능력 및 코드 품질 개선
 - 발표 및 설명 능력 강화
-- 꾸준한 문제 풀이 습관 형성
+- 코드 리뷰 기반 협업 경험
 
 ---
 
 ## 🧭 Study Process
 
 ### 1️⃣ Weekly Tasks
-- 백준/프로그래머스 4~5문제 풀이
+- 백준 / 프로그래머스 4~5문제 풀이
 - AtCoder ABC 참여
 
 ### 2️⃣ 발표
@@ -44,11 +44,11 @@
 
 📌 ABC 기준
 - 푼 문제 + 다음 문제까지 준비
-- 문제 A/B는 간단 브리핑
+- A/B 문제는 간단 브리핑
 
 ### 3️⃣ Code Management
-- GitHub에 코드 업로드
-- Notion에 알고리즘 정리
+- GitHub PR 기반 코드 제출
+- Notion 알고리즘 정리
 
 ---
 
@@ -56,8 +56,8 @@
 
 | 기간 | 내용 |
 |------|------|
-| 3월~4월 | 카테고리별 문제 풀이 |
-| 4월~8월 | 프로그래머스 문제 풀이 및 랜덤 디펜스 진행 |
+| 3~4월 | 백준 카테고리별 문제 풀이 |
+| 4~8월 | 프로그래머스 문제 풀이 |
 | 상시 | 삼성 기출 주 1문제 |
 
 ---
@@ -70,17 +70,33 @@
 
 ---
 
-## 📂 Repository Structure
+# 🧩 KB Header Plugin
+
+코드 작성 시 아래 KB 헤더를 사용합니다.
+
+## 📥 다운로드
+- CLion: (업로드 예정)
+- VSCode: (업로드 예정)
+
+## 📌 목적
+- 코드 표준화
+- 가독성 향상
+- 협업 시 코드 이해도 증가
+
+---
+
+# 📂 Repository Structure (중요)
+
+👉 **문제 기준으로 코드 관리합니다**
 
 ```bash
-cpp-algorithm-study/
-├─ baekjoon/
-│  ├─ week01/
-│  └─ week02/
-├─ atcoder/
-│  ├─ abc/
-├─ programmers/
-├─ samsung/
-├─ notes/
-└─ .github/
-   └─ pull_request_template.md
+baekjoon/
+└─ week01/
+   ├─ 1149_RGB거리/
+   │  ├─ jun.cpp
+   │  ├─ minsu.cpp
+   │  └─ hyun.cpp
+   ├─ 1003_피보나치/
+   │  ├─ jun.cpp
+   │  ├─ minsu.cpp
+   │  └─ ...
