@@ -75,8 +75,12 @@
 코드 작성 시 아래 KB 헤더를 사용합니다.
 
 ## 📥 다운로드
-- CLion: (업로드 예정)
-- VSCode: (업로드 예정)
+
+### VS Code
+- [KB Header VSIX 다운로드](./KB-Header/kb_header.vsix)
+
+### CLion
+- [KB Header Plugin 다운로드](./KB-Header/kb-header-clion-plugin-1.0.3.zip)
 
 ## 📌 목적
 - 코드 표준화
