@@ -109,4 +109,4 @@ baekjoon/
 
 | 날짜 | 주차 | 문제 |
 |------|------|------|
-| 04.09 - 04.16 | [Week01](https://github.com/KB-Cpp-Algorithm/cpp-algorithm-study/issues/1) | 자료구조 (스택, 큐, 덱) + ABC + 삼성 |
+| 04.09 - 04.16 | [Week01](https://github.com/KB-Cpp-Algorithm/cpp-algorithm-study/issues/1) | 자료구조 (스택, 큐, 덱, 리스트) + Atcoder ABC + 삼성 기출|
