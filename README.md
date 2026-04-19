@@ -85,7 +85,7 @@
 
 ---
 
-# 📂 Repository Structure (중요)
+# 📂 Repository Structure
 
 👉 **문제 기준으로 코드 관리합니다**
 
@@ -93,10 +93,10 @@
 baekjoon/
 └─ week01/
    ├─ 1149_RGB거리/
-   │  ├─ jun.cpp
-   │  ├─ minsu.cpp
-   │  └─ hyun.cpp
+   │  ├─ NameA.cpp
+   │  ├─ NameB.cpp
+   │  └─ NameC.cpp
    ├─ 1003_피보나치/
-   │  ├─ jun.cpp
-   │  ├─ minsu.cpp
+   │  ├─ NameA.cpp
+   │  ├─ NameB.cpp
    │  └─ ...
