@@ -100,3 +100,13 @@ baekjoon/
    │  ├─ NameA.cpp
    │  ├─ NameB.cpp
    │  └─ ...
+
+---
+
+# 📅 Study History
+
+## 🔹 2026 스터디 히스토리
+
+| 날짜 | 주차 | 문제 |
+|------|------|------|
+| 04.09 - 04.16 | Week01 | [문제 보기](https://github.com/KB-Cpp-Algorithm/cpp-algorithm-study/issues/1) |
