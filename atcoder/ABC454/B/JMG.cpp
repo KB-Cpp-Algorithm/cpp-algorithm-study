@@ -1,10 +1,10 @@
 /********************************************************************************/
 /* File Name         : JMG.cpp                                                  */
 /* By                : MinGyu Jeong                            KK  KK   BBBBB   */
-/* Algorithm         :                                         KK KK    BB  BB  */
-/* Time Complexity   :                                         KKKKK    BBBBB   */
-/* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              :                                         KK  KK   BBBBB   */
+/* Algorithm         : set                                     KK KK    BB  BB  */
+/* Time Complexity   : O(N * logN)                             KKKKK    BBBBB   */
+/* Space Complexity  : O(N)                                    KK KK    BB  BB  */
+/* Note              : set로 중복 없애면서 검증                KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 #include <iostream>
