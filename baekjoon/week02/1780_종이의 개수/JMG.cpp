@@ -55,7 +55,7 @@ void solve(int row,int col, int size) {
         for (int j = 0; j < 3; j++)
         {
             solve(row + i*new_size, col + j*new_size, new_size);
-        } 
+        }
     }
 // N == 9 시작 시 
 // -> 한 번 분할 시 

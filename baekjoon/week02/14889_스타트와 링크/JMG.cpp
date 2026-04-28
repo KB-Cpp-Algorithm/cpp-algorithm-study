@@ -2,9 +2,9 @@
 /* File Name         : JMG.cpp                                                  */
 /* By                : MinGyu Jeong                            KK  KK   BBBBB   */
 /* Algorithm         : dfs 탐색                                KK KK    BB  BB  */
-/* Time Complexity   : O(2^N)                                  KKKKK    BBBBB   */
+/* Time Complexity   : O(2^N * N^2)                            KKKKK    BBBBB   */
 /* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              :                                         KK  KK   BBBBB   */
+/* Note              : 시간복잡도 커짐..                       KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 #include <iostream>
@@ -13,6 +13,7 @@
 using namespace std;
 
 int N;
+// 표 - 2차원 배열
 int S[21][21];
 
 // team_select[i] == true면 start팀으로
@@ -46,7 +47,7 @@ void check() {
 
 // cnt - 스타트팀 인원 수
 void dfs(int index, int cnt){
-    // 에러 -> 모든 인원을 다 봤는데도 팀원이 안 찬 경우 종료(ai hint)
+    // 에러 -> 모든 인원을 다 봤는데도 팀원이 안 찬 경우 종료(ai hint) -> 재귀 스탑용
     if(index == N) return;
     if(cnt==N/2){
         check();

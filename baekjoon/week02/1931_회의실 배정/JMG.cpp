@@ -12,7 +12,7 @@
 #include <algorithm>
 using namespace std;
 
-// 가장 회의 많이 하는 경우 -> 회의 시간 짧은 케이스
+// 빨리 종료되는 회의 선택
 int main() {
     ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
