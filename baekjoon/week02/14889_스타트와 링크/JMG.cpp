@@ -4,7 +4,7 @@
 /* Algorithm         : dfs 탐색                                KK KK    BB  BB  */
 /* Time Complexity   : O(2^N * N^2)                            KKKKK    BBBBB   */
 /* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              : 시간복잡도 커짐..                       KK  KK   BBBBB   */
+/* Note              : 시간복잡도 커짐...                      KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 #include <iostream>

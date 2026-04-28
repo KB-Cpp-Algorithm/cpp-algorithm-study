@@ -4,7 +4,7 @@
 /* Algorithm         : 사칙연산                                KK KK    BB  BB  */
 /* Time Complexity   :                                         KKKKK    BBBBB   */
 /* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              : 뺄셈 후 절대값 예외처리                 KK  KK   BBBBB   */
+/* Note              : 뺄셈 후 절대값 예외처리.                KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 #include <iostream>
