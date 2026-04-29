@@ -12,8 +12,6 @@
 
 using namespace std;
 
-//실행시간 3초나 걸림. 더 줄일 방법?
-
 class Solution {
 public:
     int R, C;
@@ -127,7 +125,7 @@ public:
     }
 };
 
-
+/*
 int main(void)
 {
     ios_base::sync_with_stdio(false);
@@ -140,4 +138,4 @@ int main(void)
     vector<vector<int>> grid3 = {{0,2}};
     vector<vector<int>> grid4 = {{2,1,1}, {1,1,1}, {0,1,2}};
     cout << sol.orangesRotting(grid3) << '\n';
-}
+}*/
