@@ -32,7 +32,7 @@
 ## 🧭 Study Process
 
 ### 1️⃣ Weekly Tasks
-- 백준 / 프로그래머스 4~5문제 풀이
+- 백준 / 리트 코드 / 프로그래머스 4~5문제 풀이
 - AtCoder ABC 참여
 
 ### 2️⃣ 발표
