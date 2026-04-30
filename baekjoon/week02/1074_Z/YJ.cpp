@@ -1,5 +1,5 @@
 /********************************************************************************/
-/* File Name         : 1074-z.cpp                                               */
+/* File Name         : YJ.cpp                                                   */
 /* By                : yoonjeong                               KK  KK   BBBBB   */
 /* Algorithm         : Divide and Conquer / Recursion          KK KK    BB  BB  */
 /* Time Complexity   : O(N)                                    KKKKK    BBBBB   */
@@ -36,7 +36,6 @@ void Z(int y, int x, int size){ //size = 현재 사분면의 크기
     Z(y, x+half, half); //2. 오른쪽 위
     Z(y+half, x, half); //3. 왼쪽 아래
     Z(y+half, x+half, half); //4. 오른쪽 아래
-
 }
 
 int main(void){
