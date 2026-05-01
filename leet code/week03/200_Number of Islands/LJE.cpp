@@ -14,7 +14,7 @@ class Solution {
 public:
 
     int m, n;
-    int dr[4] = {-1, 1, 0, 0};
+    int dr[4] = {-1, 1, 0, 0}; // 상하좌우 탐색을 위한 방향 벡터
     int dc[4] = {0, 0, -1, 1};
     void dfs(int r, int c, vector<vector<char>>& grid) {
         // 1. 방문 처리: grid 값을 바꿔버려서 visited 배열을 대체
@@ -22,7 +22,7 @@ public:
         for (int i = 0; i < 4; i++) {
             int nr = r + dr[i];
             int nc = c + dc[i];
-            // 2. 범위 체크와 땅인지 확인
+            // 2. 경계 내에 있고, 아직 방문하지 않은 땅(1)이라면 계속 탐색
             if ((nr >= 0 && nr < m) && (nc >= 0 && nc < n) && grid[nr][nc] == '1') {
                 dfs(nr, nc, grid);
             }
@@ -34,8 +34,9 @@ public:
         int num = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] == '1') { // 아직 방문 안 한 땅 발견
-                    num++;
+                // 3. '1'을 발견하면 새로운 섬의 시작점
+                if (grid[i][j] == '1') { 
+                    num++; //섬 개수 카운트
                     dfs(i, j, grid);
                 }
             }
