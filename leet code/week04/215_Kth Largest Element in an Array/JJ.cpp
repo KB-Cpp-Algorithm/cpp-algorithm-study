@@ -41,9 +41,6 @@ int main(void)
     vector<int> nums = {3, 2, 1, 5, 6, 4};
     vector<int> nums2 = {3, 2, 3, 1, 2, 4, 5, 5, 6};
 
-    //cout << sol.findKthLargest(nums, 2) << '\n';
-    //cout << sol.findKthLargest(nums2, 4) << '\n';
-
-    cout << sol.subarraySum(nums, 2);
-    cout << sol.subarraySum(nums2, 4);
+    cout << sol.findKthLargest(nums, 2) << '\n';
+    cout << sol.findKthLargest(nums2, 4) << '\n';
 }
