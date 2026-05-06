@@ -12,14 +12,10 @@
 
 using namespace std;
 
-/*
-가장 많이 남은 task를 우선적으로 스케줄링
-이번 사이클(n)동안 쓸 수 있는 task 없으면 idle
-*/
 class Solution {
 public:
-    int time = 0;
     int leastInterval(vector<char>& tasks, int n) {
+        int time = 0;
         priority_queue<pair<int, char>> ready; //실행할 수 있는 작업 목록 저장하는 큐
         queue<tuple<int, char, int>> wait; //복귀시간, 작업 이름, 남은 횟수
 
@@ -35,11 +31,12 @@ public:
         //작업이 다 끝날 때까지(ready, wait큐가 빌때까지) 작업 돌리기
         //ready큐에서 가장 남은 작업 수가 많은 task를 실행. (ready큐에서 빠짐)
         //frequent 수를 줄이고 0이 아니면 wait큐에 저장 후 time++
-        //wait의 task가 복귀 시간에 도달하면 ready큐로 이동
-        //ready가 비어있고 wait가 비어있지 않으면 idle 추가
+        //wait큐의 task가 복귀 시간에 도달하면 ready큐로 이동
+        //ready큐가 비어있고 wait큐가 비어있지 않으면 idle
 
-        //time = get<0>(wait.front());
         while(!ready.empty() || !wait.empty()){
+            //대기큐가 비어있지 않고 현재 시간이 큐 제일 앞에 있는 작업의 복귀 시간에 도달하면 대기큐에서 레디큐로 복귀
+            //대기큐는 FIFO이기 때문에 맨 앞 작업의 복귀 시간만 확인하면 됨
             while(!wait.empty() && get<0>(wait.front()) <= time){
                 char tempTask = get<1>(wait.front());
                 int tempFrequent = get<2>(wait.front());
@@ -47,28 +44,27 @@ public:
                 ready.push({tempFrequent, tempTask});
             }
             
-            //레디큐가 비면 wait큐에서 ready로 올 수 있는 시간으로 스킵
+            //레디큐가 비면 대기큐에서 레디큐로 올 수 있는 시간으로 스킵
             if(ready.empty()){
                 time = get<0>(wait.front());
                 continue;
             }
 
             //레디큐에서 task 실행
-            if(!ready.empty()){
-                int tempFrequent = ready.top().first;
-                
-                char tempTask = ready.top().second;
-                ready.pop();
+            int tempFrequent = ready.top().first;
+            char tempTask = ready.top().second;
+            ready.pop();
+            //해당 task가 끝났으므로 빈도수--
+            tempFrequent--;
+            //빈도수가 0이 되면 작업이 아예 끝났다는 의미이므로 대기큐에 푸쉬 x
+            if(tempFrequent != 0)
+                wait.push({time + n + 1, tempTask, tempFrequent});
 
-                tempFrequent--;
-                if(tempFrequent != 0)
-                    wait.push({time + n + 1, tempTask, tempFrequent});
-                time++;
-            }
+            //작업 하나가 아예 끝났으므로 시간 증가
+            time++;
         }
         return time;
     }
-    
 };
 
 int main(void)
