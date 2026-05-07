@@ -1,7 +1,7 @@
 /********************************************************************************/
 /* File Name         : LJE.cpp                                                  */
 /* By                : Jieun                                    KK  KK   BBBBB  */
-/* Algorithm         : Greedy, Hash Map                         KK KK    BB  BB */
+/* Algorithm         : Greedy, Map                              KK KK    BB  BB */
 /* Time Complexity   : O(n)                                     KKKKK    BBBBB  */
 /* Space Complexity  : O(1) (알파벳 26개 한정)                     KK KK    BB  BB */
 /* Note              : 빈도수 기반 우선순뒤                          KK  KK   BBBBB  */
