@@ -14,12 +14,19 @@ using namespace std;
 
 //int sum = accumulate(더하고싶은 시작점,더하고싶은 도착점, 초기값);
 
+//슬라이딩 윈도우 불가 [1, -2, 1] / k = 3일 때 문제 발생
+//누적합 - 부분배열 = 부분배열2 <- 이 때, 부분배열2의 값이 k가 되는 부분배열의 개수를 구하면 된다.
+//-> 누적합 - k(부분배열2) = 부분배열
+
+
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        int size = numes.size();
-        vector<vector<int>> v(size, vector<int>(size, 0));
-        for(int i = 0; i )
+        int prefixSum = 0;
+        unordered_map<int, int> um;
+        for(int i = 0; i < nums.size(); i++){
+            prefixSum += nums[i];
+        }
     }
 };
 

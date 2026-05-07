@@ -1,10 +1,10 @@
 /********************************************************************************/
 /* File Name         : JJ.cpp                                                   */
 /* By                : Jun Jeong                               KK  KK   BBBBB   */
-/* Algorithm         :                                         KK KK    BB  BB  */
-/* Time Complexity   :                                         KKKKK    BBBBB   */
-/* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              :                                         KK  KK   BBBBB   */
+/* Algorithm         : 이분탐색                                KK KK    BB  BB  */
+/* Time Complexity   : O(nlogm)                                KKKKK    BBBBB   */
+/* Space Complexity  : O(1)                                    KK KK    BB  BB  */
+/* Note              : n은 piles 개수, m은 최대 pile 크기      KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 

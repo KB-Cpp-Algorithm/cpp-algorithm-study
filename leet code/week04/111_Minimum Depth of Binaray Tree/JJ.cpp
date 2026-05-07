@@ -1,9 +1,9 @@
 /********************************************************************************/
 /* File Name         : JJ.cpp                                                   */
 /* By                : Jun Jeong                               KK  KK   BBBBB   */
-/* Algorithm         :                                         KK KK    BB  BB  */
-/* Time Complexity   :                                         KKKKK    BBBBB   */
-/* Space Complexity  :                                         KK KK    BB  BB  */
+/* Algorithm         : BFS, 트리                               KK KK    BB  BB  */
+/* Time Complexity   : O(n)                                    KKKKK    BBBBB   */
+/* Space Complexity  : O(n)                                    KK KK    BB  BB  */
 /* Note              :                                         KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/

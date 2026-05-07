@@ -1,10 +1,10 @@
 /********************************************************************************/
 /* File Name         : JJ.cpp                                                   */
 /* By                : Jun Jeong                               KK  KK   BBBBB   */
-/* Algorithm         :                                         KK KK    BB  BB  */
-/* Time Complexity   :                                         KKKKK    BBBBB   */
-/* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              :                                         KK  KK   BBBBB   */
+/* Algorithm         : 우선순위 큐, 그리디                     KK KK    BB  BB  */
+/* Time Complexity   : O(nlogn)                                KKKKK    BBBBB   */
+/* Space Complexity  : O(m)                                    KK KK    BB  BB  */
+/* Note              : n은 전체 작업 개수, m은 작업 종류 수    KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 
