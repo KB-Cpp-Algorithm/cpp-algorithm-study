@@ -47,15 +47,16 @@ int main(void)
     for(int i = 0; i < M; i++){
         cin >> temp;
         q.push(temp);
-    }
+    }*/
 
+    /*
     for(auto i : arr){
         for(auto j : i){
             cout << j << ' ';
         }
         cout << '\n';
     }
-        */
+    */
 
     K = 2;
     M = 20;
