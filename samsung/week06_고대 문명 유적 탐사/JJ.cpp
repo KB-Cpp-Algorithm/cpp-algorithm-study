@@ -1,10 +1,10 @@
 /********************************************************************************/
 /* File Name         : JJ.cpp                                                   */
 /* By                : Jun Jeong                               KK  KK   BBBBB   */
-/* Algorithm         :                                         KK KK    BB  BB  */
-/* Time Complexity   :                                         KKKKK    BBBBB   */
-/* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              :                                         KK  KK   BBBBB   */
+/* Algorithm         : BFS + 시뮬레이션                        KK KK    BB  BB  */
+/* Time Complexity   : O(K * (27*25 + R*25))                   KKKKK    BBBBB   */
+/* Space Complexity  : O(25 + M)                               KK KK    BB  BB  */
+/* Note              : K:탐사횟수, R:연쇄 횟수, M: 벽면 숫자   KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 
@@ -13,7 +13,7 @@
 using namespace std;
 
 int K, M;
-vector<vector<int>> Arr(5, vector<int>(5, 0));
+vector<vector<int>> arr(5, vector<int>(5, 0));
 queue<int> q;
 
 typedef struct{
@@ -25,9 +25,11 @@ typedef struct{
 }Node;
 
 bool isBetter(const Node& a, const Node& b); //우선순위 비교함수
+void fill(vector<vector<int>>& arr); //빈칸 채우기 함수
 Node bfs(vector<vector<int>>& arr, int center_i, int center_j, int angle); //bfs를 진행한 뒤, 결과들과 정보를 구조체에 저장 후 리턴
 void rotate(vector<vector<int>>& arr, int center_i, int center_j, int n); //시계방향 회전. n = 2/4/6 -> 90/180/270 회전
-void findRelic(vector<vector<int>>& arr);
+int findRelic(vector<vector<int>>& arr); //최적 회전 찾은 후 유물 제거 -> 빈칸 채우기 반복(연쇄). 이후 총 점수 반환
+int removeRelic(vector<vector<int>>& arr);
 
 
 int main(void)
@@ -35,7 +37,7 @@ int main(void)
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    /*
+    
     cin >> K >> M;
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
@@ -47,41 +49,15 @@ int main(void)
     for(int i = 0; i < M; i++){
         cin >> temp;
         q.push(temp);
-    }*/
-
-    /*
-    for(auto i : arr){
-        for(auto j : i){
-            cout << j << ' ';
-        }
-        cout << '\n';
     }
-    */
 
-    K = 2;
-    M = 20;
-    Arr[0][0] = 7; Arr[0][1] = 6; Arr[0][2] = 7; Arr[0][3] = 6; Arr[0][4] = 7;
-    Arr[1][0] = 6; Arr[1][1] = 7; Arr[1][2] = 6; Arr[1][3] = 7; Arr[1][4] = 6;
-    Arr[2][0] = 6; Arr[2][1] = 7; Arr[2][2] = 1; Arr[2][3] = 5; Arr[2][4] = 4;
-    Arr[3][0] = 7; Arr[3][1] = 6; Arr[3][2] = 3; Arr[3][3] = 2; Arr[3][4] = 1;
-    Arr[4][0] = 5; Arr[4][1] = 4; Arr[4][2] = 3; Arr[4][3] = 2; Arr[4][4] = 7;
-        
-    q.push(3); q.push(2); q.push(3); q.push(5); q.push(2);
-    q.push(4); q.push(6); q.push(1); q.push(3); q.push(2);
-    q.push(5); q.push(6); q.push(2); q.push(1); q.push(5);
-    q.push(6); q.push(7); q.push(1); q.push(2); q.push(3);
-
-    solve(Arr);
+    //K번 탐사 진행
     for(int i = 0; i < K; i++){
-        int score = findRelic(Arr);
+        int score = findRelic(arr);
         if(score == 0)
             break;
         else
             cout << score << ' '; 
-        
-        //배열에서 삭제
-
-        //배열에 큐 값 넣기
     }
     return 0;
 }
@@ -100,6 +76,19 @@ bool isBetter(const Node& a, const Node& b)
         return a.center_j < b.center_j;
     //열마저 같다면 행이 작은 방법 선택
     return a.center_i < b.center_i;
+}
+
+void fill(vector<vector<int>>& arr) //빈칸 채우기 함수
+{
+    //열 번호가 작은 순 -> 행 번호 큰 순으로 빈칸 채움
+    for(int j = 0; j < 5; j++){
+        for(int i = 4; i >= 0; i--){
+            if(arr[i][j] == 0){
+                arr[i][j] = q.front();
+                q.pop();
+            }
+        }
+    }
 }
 
 //bfs 리턴 값을 구조체로
@@ -190,7 +179,7 @@ void rotate(vector<vector<int>>& arr, int center_i, int center_j, int n)
     arr[center_i][center_j - 1] = temp[7];
 }
 
-
+//최적 회전 찾은 후 유물 제거 -> 빈칸 채우기 반복(연쇄). 이후 총 점수 반환
 int findRelic(vector<vector<int>>& arr)
 {
     Node best;
@@ -213,11 +202,96 @@ int findRelic(vector<vector<int>>& arr)
         }
     }
 
-    //유물이 아예 완성되지 않았으면 종료돼야 하므로 false 리턴
+    //유물이 아예 완성되지 않았으면 종료돼야 하므로 false(0) 리턴
     if(best.score == 0)
         return 0;
 
-    //완성됐으면 격자 모양 바꾼 후 true리턴
+    //최적 회전 결과를 arr에 반영
     arr = best.grid;
-    return best.score;
+
+    //연쇄 진행
+    int totalScore = 0;
+    while(true){
+        int score = removeRelic(arr);
+
+        //더 이상 제거할 유물 없으면 탈출 후 총점수 리턴
+        if(score == 0)
+            break;
+        totalScore += score;
+
+        //빈칸 큐에서 채우기
+        fill(arr);
+        
+    }
+    return totalScore;
 }
+
+//유물 제거. 기본적으로 BFS 함수와 흐름 같음
+//제거한 유물 총점 리턴
+int removeRelic(vector<vector<int>>& arr)
+{
+    int score = 0;
+    vector<vector<bool>> visited(5, vector<bool>(5, false));
+    //상하좌우
+    vector<int> di = {-1, 1, 0, 0}, dj = {0, 0, -1, 1};
+
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(visited[i][j] || arr[i][j] == 0)
+                continue;
+
+            int target = arr[i][j];
+            queue<pair<int, int>> q;
+            vector<pair<int, int>> cells; //넓이 검사를 위한 좌표 저장 벡터
+
+            q.push({i, j});
+            visited[i][j] = true;
+
+            while(!q.empty()){
+                int curr_i = q.front().first;
+                int curr_j = q.front().second;
+                q.pop();
+
+                cells.push_back({curr_i, curr_j}); 
+
+                for(int dir = 0; dir < 4; dir++){
+                    int next_i = curr_i + di[dir];
+                    int next_j = curr_j + dj[dir];
+
+                    if(next_i < 0 || next_i >= 5 || next_j < 0 || next_j >= 5)
+                        continue;
+
+                    if(visited[next_i][next_j])
+                        continue;
+
+                    if(arr[next_i][next_j] != target)
+                        continue;
+
+                    visited[next_i][next_j] = true;
+                    q.push({next_i, next_j});
+                }
+            }
+
+            // 크기 3 이상이면 유물 획득
+            if(cells.size() >= 3){
+                score += cells.size();
+
+                // 이후 해당 칸 0으로 삭제
+                for(int idx = 0; idx < cells.size(); idx++){
+                    int i = cells[idx].first;
+                    int j = cells[idx].second;
+
+                    arr[i][j] = 0;
+                }
+            }
+        }
+    }
+    return score;
+}
+
+    // for(auto i : arr){
+    //     for(auto j : i){
+    //         cout << j << ' ';
+    //     }
+    //     cout << '\n';
+    // }
