@@ -1,3 +1,13 @@
+/********************************************************************************/
+/* File Name         : LJE.cpp                                                   */
+/* By                : jieun                                   KK  KK   BBBBB   */
+/* Algorithm         : Union-Find                              KK KK    BB  BB  */
+/* Time Complexity   : O(N)                                    KKKKK    BBBBB   */
+/* Space Complexity  :                                         KK KK    BB  BB  */
+/* Note              :                                         KK  KK   BBBBB   */
+/*                                                                              */
+/********************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 
