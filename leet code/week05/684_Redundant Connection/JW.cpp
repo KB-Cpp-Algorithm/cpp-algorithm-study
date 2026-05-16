@@ -10,7 +10,7 @@
 
 class Solution {
 public:
-    // 부모 탐색
+    // 부모 탐색 
     int find(int x, vector<int>& parent) {
         if(parent[x] == x) return x;
 
