@@ -14,7 +14,7 @@ using namespace std;
 
 // numCourses개의 코스(노드) 존재
 // prerequisites[i] = [ai, bi]가 있으면 ai를 수강하려면 bi가 선행되어야 함.
-
+// 사이클 존재하는지 여부 반환 문제!
 class Solution {
 public:
 
@@ -63,7 +63,7 @@ public:
             // 노드 별 진입차수 카운팅
             indegree[a]++;
         }
-
+        // 위상정렬 순으로 처리된 노드들
         vector<int> result = topologicalSort(numCourses,graph,indegree);
 
         // result 사이즈가 노드 개수보다 적으면 사이클 존재해서 false 반환
