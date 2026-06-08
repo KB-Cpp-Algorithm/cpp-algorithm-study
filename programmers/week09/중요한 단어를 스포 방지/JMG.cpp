@@ -58,8 +58,10 @@ int solution(string message, vector<vector<int>> spoiler_ranges) {
         words.push_back({word,start,end});
     }
     
+
+    // ########
+    // 각 단어 언제 공개될 지
     int spo_cnt = spoiler_ranges.size();
-    
     
     // spo에 한 번도 안 걸린 단어
     unordered_set<string> normal_words;
@@ -85,13 +87,15 @@ int solution(string message, vector<vector<int>> spoiler_ranges) {
         
 
     }
-    
+    // ########
     // 공개된 스포 단어 저장
     unordered_set<string> reveal_spo_words;
     
     for(int i = 0; i < spo_cnt; i++) {
         for(auto word : special_word_candidates[i]) {
+            // 이미 스포로 공개된 적 있는지
             bool reveal_spo = reveal_spo_words.count(word);
+            // 원래 일반 단어에 있는지
             bool reveal_normal = normal_words.count(word);
             // 예외 처리 - 오답.
             // gpt 도움 -> normal_word도 아니여야 함
