@@ -4,7 +4,7 @@
 /* Algorithm         : bfs                                     KK KK    BB  BB  */
 /* Time Complexity   : O(N⁴) //V = N*N, E = 4 * N*N            KKKKK    BBBBB   */
 /* Space Complexity  :                                         KK KK    BB  BB  */
-/* Note              : 방향 처리 주의                             KK  KK   BBBBB   */
+/* Note              : 방향 처리 주의                          KK  KK   BBBBB   */
 /*                                                                              */
 /********************************************************************************/
 #include <bits/stdc++.h>
@@ -134,7 +134,6 @@ void solve(int r, int c, int d) {
 }
 
 int main() {
-    // Please write your code here.
     int r, c, d;
     cin >> N >> r >> c >> d;
 
