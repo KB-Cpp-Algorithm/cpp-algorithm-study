@@ -22,9 +22,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst,
-                          int k) {
+   public:
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
         // 무한대 상수
         const int INF = INT_MAX;
         // 최단 거리
@@ -50,8 +49,7 @@ public:
                 int price = flight[2];
 
                 // from에서 출발할 수 없는 경우
-                if (dist[from] == INF)
-                    continue;
+                if (dist[from] == INF) continue;
 
                 // 최소 비용으로 갱신하지만, 저장은 tempDist만
                 tempDist[to] = min(tempDist[to], dist[from] + price);

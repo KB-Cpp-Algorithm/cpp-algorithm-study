@@ -123,7 +123,7 @@ void solve(int r, int c, int d) {
 
         //2단계 시작- bfs돌려서 현재 상황에서 갈 수 있는(암초가 아니고, 첫번째 visited에서 방문한 적이 없는 칸인
         //최소 거리의 칸
-        Whale next = solve2(r, c, d);,
+        Whale next = solve2(r, c, d);
         if(next.r == -1) break;
         r = next.r;
         c = next.c;
