@@ -66,6 +66,7 @@ vector<int> solution(vector<long long> numbers) {
     }
 
 
+
     
     return answer;
 }
