@@ -56,6 +56,7 @@ ex)
 [PG] JJ - 타겟 넘버
 [ABC453] JJ - A
 [SS] JJ - 돌아가는 팔각 의자
+[SQL] JH - 카테고리 별 도서 판매량 집계하기
 ```
 
 ## 📂 Repository Structure
@@ -70,8 +71,8 @@ baekjoon/
    │  ├─ NameB.cpp
    │  └─ NameC.cpp
    ├─ 1406_에디터/
-   │  ├─ NameA.cpp
-   │  ├─ NameB.cpp
+   │  ├─ NameA.sql
+   │  ├─ NameB.sql
    │  └─ ...
 ```
 
