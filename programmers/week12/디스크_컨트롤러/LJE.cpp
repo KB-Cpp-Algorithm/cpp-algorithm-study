@@ -1,3 +1,12 @@
+/********************************************************************************/
+/* File Name         : LJE.cpp                                                   */
+/* By                : jieun                                   KK  KK   BBBBB   */
+/* Algorithm         : Priority Queue                          KK KK    BB  BB  */
+/* Time Complexity   : O(NlogN)                                KKKKK    BBBBB   */
+/* Space Complexity  : O(N)                                    KK KK    BB  BB  */
+/* Note              : 튜플 사용해보기                             KK  KK   BBBBB   */
+/*                                                                              */
+/********************************************************************************/
 #include <bits/stdc++.h>
 using namespace std;
 
