@@ -3,7 +3,7 @@
 using namespace std;
 
 // 500^2 x log500 널널
-
+// 장르 별 먼저 -> 장르 안에서 재생 수 큰 노래 2개
 // 요청 시간 기준 정렬
 bool compare_request(vector<int> i, vector<int> j) {
     // 요청 시간이 같으면 작업 번호 작은 순
