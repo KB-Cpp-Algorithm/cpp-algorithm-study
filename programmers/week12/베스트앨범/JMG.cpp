@@ -2,81 +2,60 @@
 
 using namespace std;
 
-// 500^2 x log500 널널
-// 장르 별 먼저 -> 장르 안에서 재생 수 큰 노래 2개
-// 요청 시간 기준 정렬
-bool compare_request(vector<int> i, vector<int> j) {
-    // 요청 시간이 같으면 작업 번호 작은 순
-    if (i[0] == j[0]) {
-        return i[2] < j[2];
+// 장르 안 노래 정렬
+bool compareSong(pair<int, int> a, pair<int, int> b) {
+    // 재생 횟수가 같으면 고유 번호 오름차순
+    if (a.first == b.first) {
+        return a.second < b.second;
     }
 
-    return i[0] < j[0];
+    // 재생 횟수 내림차순
+    return a.first > b.first;
 }
 
-// 대기 중인 작업 정렬
-// 소요 시간 -> 요청 시간 -> 작업 번호 순
-bool compare_wait(vector<int> i, vector<int> j) {
-    // 소요 시간이 같으면 요청 시간 빠른 순
-    if (i[1] == j[1]) {
-        // 요청 시간도 같으면 작업 번호 작은 순
-        if (i[0] == j[0]) {
-            return i[2] < j[2];
-        }
+vector<int> solution(vector<string> genres, vector<int> plays) {
+    vector<int> answer;
 
-        return i[0] < j[0];
+    // 장르별 전체 재생 횟수
+    map<string, int> totalPlay;
+
+    // 장르별 노래 목록
+    // pair<int, int> = 재생 횟수, 고유 번호
+    map<string, vector<pair<int, int>>> genreSongs;
+
+    for (int i = 0; i < genres.size(); i++) {
+        string genre = genres[i];
+
+        totalPlay[genre] += plays[i];
+        genreSongs[genre].push_back({plays[i], i});
     }
 
-    // 소요 시간 짧은 작업 우선
-    return i[1] < j[1];
-}
+    // 장르 전체 재생 횟수 기준 정렬하기 위한 벡터
+    // pair<int, string> = 전체 재생 횟수, 장르 이름
+    vector<pair<int, string>> genreReorder;
 
-int solution(vector<vector<int>> jobs) {
-    int answer = 0;
-
-    // jobs[i] = { 요청 시간, 소요 시간, 작업 번호 }
-    for (int i = 0; i < jobs.size(); i++) {
-        jobs[i].push_back(i);
+    for (auto& [genre, total] : totalPlay) {
+        genreReorder.push_back({total, genre});
     }
 
-    // 요청 시간 빠른 순으로 정렬
-    sort(jobs.begin(), jobs.end(), compare_request);
+    // 장르 전체 재생 횟수 내림차순
+    sort(genreReorder.begin(), genreReorder.end(),
+         [](pair<int, string> a, pair<int, string> b) {
+             return a.first > b.first;
+         });
 
-    vector<vector<int>> wait_jobs;
+    // 재생 횟수가 높은 장르부터 확인
+    for (auto& [total, genre] : genreReorder) {
+        vector<pair<int, int>>& songs = genreSongs[genre];
 
-    int time = 0;
-    int job_idx = 0;
-    int done = 0;
+        // 장르 안 노래 정렬
+        sort(songs.begin(), songs.end(), compareSong);
 
-    while (done < jobs.size()) {
-        // 현재 시간까지 들어온 작업 모두 넣기
-        while (job_idx < jobs.size() && jobs[job_idx][0] <= time) {
-            wait_jobs.push_back(jobs[job_idx]);
-            job_idx++;
+        // 장르별 최대 2곡
+        for (int i = 0; i < songs.size() && i < 2; i++) {
+            answer.push_back(songs[i].second);
         }
-
-        // 현재 대기 중인 작업이 없으면
-        if (wait_jobs.empty()) {
-            // 다음 작업 요청 시간으로 이동
-            time = jobs[job_idx][0];
-            continue;
-        }
-
-        // 대기 중인 작업 우선순위대로 정렬
-        sort(wait_jobs.begin(), wait_jobs.end(), compare_wait);
-
-        // 가장 앞의 작업 실행
-        vector<int> now_job = wait_jobs[0];
-        wait_jobs.erase(wait_jobs.begin());
-
-        // 작업 수행 시간만큼 현재 시간 증가
-        time += now_job[1];
-
-        // 반환 시간 = 끝난 시간 - 요청 시간
-        answer += time - now_job[0];
-
-        done++;
     }
 
-    return answer / jobs.size();
+    return answer;
 }
