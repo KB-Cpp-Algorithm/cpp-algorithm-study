@@ -31,7 +31,7 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
     }
 
     // 장르 전체 재생 횟수 기준 정렬하기 위한 벡터
-    // pair<int, string> = 전체 재생 횟수, 장르 이름
+    // 전체 재생 횟수, 장르 이름
     vector<pair<int, string>> genreReorder;
 
     for (auto& [genre, total] : totalPlay) {
