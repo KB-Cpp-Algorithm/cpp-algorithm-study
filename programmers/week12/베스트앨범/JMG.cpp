@@ -39,6 +39,7 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
     }
 
     // 장르 전체 재생 횟수 내림차순
+    // 람다함수 사용 - gpt 도움
     sort(genreReorder.begin(), genreReorder.end(),
          [](pair<int, string> a, pair<int, string> b) {
              return a.first > b.first;
